@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .results ul {
+            list-style: none;
+            padding: 0;
+        }
+        .results li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .results li:last-child {
+            border-bottom: none;
+        }
+        /* Loading spinner styles */
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #007bff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            text-align: center;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Analyzer</h1>
+        <div class="form-group">
+            <label for="recipe">Enter Recipe:</label>
+            <input type="text" id="recipe" placeholder="e.g., 2 mangoes, 1 tablespoon of salt, 1 cup of water">
+        </div>
+        <button id="analyzeBtn">Analyze Recipe</button>
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Analyzing, please wait...</p>
+        </div>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('analyzeBtn').addEventListener('click', function() {
+            const recipeText = document.getElementById('recipe').value;
+            if (recipeText.trim() === '') {
+                alert('Please enter a recipe.');
+                return;
+            }
+
+            const loadingDiv = document.getElementById('loading');
+            loadingDiv.classList.remove('hidden'); // Show the loading spinner
+
+            fetch('/api/analyze/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ recipe: recipeText }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = '';
+                if (data.analysis && data.analysis.length > 0) {
+                    const ul = document.createElement('ul');
+                    data.analysis.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = `Ingredient: ${item.ingredient}, Major Nutrient: ${item.major_nutrient}`;
+                        ul.appendChild(li);
+                    });
+                    resultsDiv.appendChild(ul);
+                } else {
+                    resultsDiv.textContent = 'No nutrients detected.';
+                }
+                loadingDiv.classList.add('hidden'); // Hide the loading spinner
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error analyzing the recipe.');
+                loadingDiv.classList.add('hidden'); // Hide the loading spinner
+            });
+        });
+    </script>
+</body>
+</html>
