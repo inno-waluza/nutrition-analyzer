@@ -1,0 +1,14 @@
+asgiref==3.7.2
+bitsandbytes==0.43.3
+crispy-bootstrap5==2023.10
+cryptography==39.0.1
+Django==5.0.3
+django-allauth==0.61.1
+django-cors-headers==3.14.0
+django-crispy-forms==2.1
+django-debug-toolbar==4.2.0
+django-filter==24.3
+djangorestframework==3.15.0
+djangorestframework-simplejwt==5.3.1
+torch==2.0.1  # PyTorch
+transformers==4.31.0  # Hugging Face Transformers
