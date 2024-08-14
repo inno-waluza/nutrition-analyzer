@@ -134,7 +134,7 @@ REST_FRAMEWORK = {
     ],
 }
 CSRF_TRUSTED_ORIGINS = [
-    "*",    
+    "https://nutrition-analyzer.onrender.com",    
 ]
 # Allow all CORS origins
 CORS_ALLOW_ALL_ORIGINS = True
