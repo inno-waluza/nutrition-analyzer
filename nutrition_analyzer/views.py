@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 import torch
-import os
 import json
 from django.views.generic import TemplateView
 
@@ -11,15 +10,14 @@ from django.views.generic import TemplateView
 class NutritionAnalyzerView(APIView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # Load the model and tokenizer from the bert directory
-        model_path = os.path.join(os.path.dirname(__file__), 'bert/my_nutrition_model')
-        tokenizer_path = os.path.join(os.path.dirname(__file__), 'bert/my_nutrition_tokenizer')
+        # Load the model and tokenizer directly from Hugging Face
+        model_name = "sgarbi/bert-fda-nutrition-ner"  # Replace with your actual model name on Hugging Face
         
-        if not os.path.exists(model_path) or not os.path.exists(tokenizer_path):
-            raise FileNotFoundError("Model or tokenizer path is incorrect.")
-        
-        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
-        self.model = AutoModelForTokenClassification.from_pretrained(model_path)
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+            self.model = AutoModelForTokenClassification.from_pretrained(model_name)
+        except Exception as e:
+            raise RuntimeError(f"Failed to load model or tokenizer from Hugging Face: {str(e)}")
 
     def post(self, request):
         try:
