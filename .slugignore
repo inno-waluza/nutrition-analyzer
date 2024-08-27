@@ -1,0 +1,10 @@
+*.md
+*.txt
+/tests
+/docs
+/.git
+*.csv
+*.sqlite3
+*.psd
+*.ai
+node_modules/

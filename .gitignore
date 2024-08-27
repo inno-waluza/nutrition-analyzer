@@ -1,3 +1,9 @@
 # Ignore Python bytecode files
 __pycache__/
 *.pyc
+*.log
+*.csv
+*.sqlite3
+*.pyc
+.DS_Store
+.env
