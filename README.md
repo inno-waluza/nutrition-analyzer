@@ -4,6 +4,9 @@
 
 The Recipe Analyzer is a web application designed to analyze recipes and extract nutritional information using BERT for Named Entity Recognition (NER). Instead of traditional food recommendation systems, this application uses advanced NLP techniques to identify ingredients and their associated nutrients.
 
+## Screenshots
+![Preview](/staticfiles/images/analyze.png)
+
 ## Features
 
 - **Recipe Analysis**: Users can input a recipe description, and the application will process it to extract nutritional details.
