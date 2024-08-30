@@ -12,4 +12,5 @@ djangorestframework-simplejwt==5.3.1
 torch==2.3.0
 transformers==4.44.1
 numpy==1.26.4
-django-heroku==0.3.1
+django_heroku==0.3.1
+dj_database_url==2.2.0
