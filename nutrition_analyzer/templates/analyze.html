@@ -12,6 +12,23 @@
             background-color: #f7f0e6;
             color: #333;
         }
+        .navbar {
+            background-color: #FFA500;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
         .container {
             width: 90%;
             max-width: 800px;
@@ -139,6 +156,12 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/api/analyze/">API</a>
+    </div>
+
     <div class="container">
         <h1>Recipe Analyzer</h1>
         <p class="description">Enter the ingredients of a recipe to analyze its nutritional content. Discover the major nutrients in each ingredient!</p>

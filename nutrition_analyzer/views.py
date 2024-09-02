@@ -82,3 +82,11 @@ class NutritionAnalyzerView(APIView):
 
 class AnalyzeInterface(TemplateView):
     template_name = 'analyze.html'
+
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+
+class AboutPageView(TemplateView):
+    template_name = 'about.html'
+
+    
