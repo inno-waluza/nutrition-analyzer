@@ -3,6 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('nutrition_analyzer.urls')),
+    path('', include('nutrition_analyzer.urls')),  # Remove the 'api/' prefix
 ]
-
