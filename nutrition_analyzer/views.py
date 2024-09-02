@@ -89,4 +89,6 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
+class APIPageView(TemplateView):
+    template_name = 'api.html'
     

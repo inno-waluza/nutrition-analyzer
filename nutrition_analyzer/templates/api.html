@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}API Documentation{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>API Documentation</h1>
+        <p>Welcome to the API documentation page for the Nutrition Analyzer app. Here, you can find details on how to use our API to analyze recipes and get nutritional information.</p>
+        
+        <h2>Endpoint</h2>
+        <p>The main endpoint for analyzing recipes is:</p>
+        <pre><code>https://nutrition-analyzer-e04e25dd19dc.herokuapp.com/api/analyze/</code></pre>
+
+        <h2>Request Method</h2>
+        <p><strong>POST</strong></p>
+        
+        <h2>Request Body</h2>
+        <p>The request body should be in JSON format and include the following field:</p>
+        <ul>
+            <li><strong>recipe</strong>: A string containing the recipe ingredients (e.g., "2 mangoes, 1 tablespoon of salt, 1 cup of water").</li>
+        </ul>
+        
+        <h2>Response</h2>
+        <p>The response will be a JSON object with the analysis of the provided recipe. Example:</p>
+        <pre><code>
+{
+    "analysis": [
+        {
+            "ingredient": "mango",
+            "major_nutrient": "Vitamin C"
+        },
+        {
+            "ingredient": "salt",
+            "major_nutrient": "Sodium"
+        },
+        {
+            "ingredient": "water",
+            "major_nutrient": "Hydration"
+        }
+    ]
+}
+        </code></pre>
+        
+        <h2>Example Request</h2>
+        <p>Here is an example of how to use <code>curl</code> to make a request to the API:</p>
+        <pre><code>
+curl -X POST https://nutrition-analyzer-e04e25dd19dc.herokuapp.com/api/analyze/ \
+     -H "Content-Type: application/json" \
+     -d '{"recipe": "2 mangoes, 1 tablespoon of salt, 1 cup of water"}'
+        </code></pre>
+    </div>
+{% endblock %}
