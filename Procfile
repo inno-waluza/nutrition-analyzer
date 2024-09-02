@@ -1,1 +1,2 @@
- gunicorn nutrition-analyzer.msgi:apllication --log-file -
+web: gunicorn nutrition-analyzer.wsgi:application --log-file -
+
