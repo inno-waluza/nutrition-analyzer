@@ -3,24 +3,23 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Nutrition Analyzer</h1>
-<p>Analyze your recipes and discover the nutritional content of each ingredient with just a few clicks.</p>
-<a href="{% url 'analyze_interface' %}" class="button" style="display: inline-block;
-padding: 15px 30px;
-background-color: #FFA500;
-color: white;
-font-size: 18px;
-font-weight: bold;
-text-transform: uppercase;
-text-decoration: none;
-border-radius: 8px;
-transition: background-color 0.3s ease, transform 0.3s ease;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-background-color: #FF8C00;
-transform: translateY(-3px);
-outline: none;
-box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.5);
-transform: translateY(1px);
-background-color: #FF7F50;
-">Get Started</a>
+<div style="text-align: center; margin-top: 20px;">
+    <h1>Welcome to the Nutrition Analyzer</h1>
+    <p>Analyze your recipes and discover the nutritional content of each ingredient with just a few clicks.</p>
+    <a href="{% url 'analyze_interface' %}" class="button" style="
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #FFA500;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    ">
+        Get Started
+    </a>
+</div>
 {% endblock %}
