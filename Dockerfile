@@ -20,5 +20,6 @@ RUN pip install --default-timeout=1000 --no-cache-dir -r requirements.txt
 # Copy the rest of your application code
 COPY . .
 
-# Run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run the application using Gunicorn
+CMD ["gunicorn", "nutrition-analyzer.wsgi:application", "--bind", "0.0.0.0:8000", "--log-file", "-"]
+
