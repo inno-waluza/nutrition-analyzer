@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Nutrition Analyzer{% endblock %}</title>
-    <!-- Open Graph Meta Tags for Facebook, LinkedIn, etc. -->
-    <meta property="og:title" content="Nutrition Analyzer">
-    <meta property="og:description" content="Analyze your food's nutritional value with our advanced tool.">
-    <meta property="og:image" content="/preview.png">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:type" content="website">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Nutrition Analyzer{% endblock %}</title>
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nutrition Analyzer">
-    <meta name="twitter:description" content="Analyze your food's nutritional value with our advanced tool.">
-    <meta name="twitter:image" content="/preview.png">
-    <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
-    <meta name="twitter:site" content="@innowaluza">
+<!-- Open Graph Meta Tags for Facebook, LinkedIn, etc. -->
+<meta property="og:title" content="Nutrition Analyzer">
+<meta property="og:description" content="Analyze your food's nutritional value with our advanced tool.">
+<meta property="og:image" content="https://raw.githubusercontent.com/inno-waluza/nutrition-analyzer/main/nutrition_analyzer/templates/preview.png">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nutrition Analyzer">
+<meta name="twitter:description" content="Analyze your food's nutritional value with our advanced tool.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/inno-waluza/nutrition-analyzer/main/nutrition_analyzer/templates/preview.png">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:site" content="@innowaluza">
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
