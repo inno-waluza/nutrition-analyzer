@@ -55,7 +55,7 @@ The Recipe Analyzer is a web application designed to analyze recipes and extract
 
 - **Access the Application**
 
-  Open your browser and navigate to [http://127.0.0.1:8000/api/analyzer/](http://127.0.0.1:8000/api/analyzer/).
+  Open your browser and navigate to [http://127.0.0.1:8000/api/analyzer/](http://127.0.0.1:8000/api/analyze).
 
 - **Analyze a Recipe**
 
