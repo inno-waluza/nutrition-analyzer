@@ -3,13 +3,13 @@
 {% block title %}API Documentation{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container-fluid">
         <h1>API Documentation</h1>
         <p>Welcome to the API documentation page for the Nutrition Analyzer app. Here, you can find details on how to use our API to analyze recipes and get nutritional information.</p>
         
         <h2>Endpoint</h2>
         <p>The main endpoint for analyzing recipes is:</p>
-        <pre><code>https://nutrition-analyzer-e04e25dd19dc.herokuapp.com/api/analyze/</code></pre>
+        <pre class="code-block"><code>https://nutrition-analyzer-e04e25dd19dc.herokuapp.com/api/analyze/</code></pre>
 
         <h2>Request Method</h2>
         <p><strong>POST</strong></p>
@@ -22,7 +22,7 @@
         
         <h2>Response</h2>
         <p>The response will be a JSON object with the analysis of the provided recipe. Example:</p>
-        <pre><code>
+        <pre class="code-block"><code>
 {
     "analysis": [
         {
@@ -43,10 +43,26 @@
         
         <h2>Example Request</h2>
         <p>Here is an example of how to use <code>curl</code> to make a request to the API:</p>
-        <pre><code>
+        <pre class="code-block"><code>
 curl -X POST https://nutrition-analyzer-e04e25dd19dc.herokuapp.com/api/analyze/ \
      -H "Content-Type: application/json" \
      -d '{"recipe": "2 mangoes, 1 tablespoon of salt, 1 cup of water"}'
         </code></pre>
     </div>
+
+    <style>
+        @media (max-width: 768px) {
+            h1, h2, p {
+                font-size: 1.2em;
+            }
+            .container-fluid {
+                padding: 10px;
+            }
+            .code-block {
+                white-space: pre-wrap; /* Makes code block wrap instead of overflow */
+                word-break: break-word;
+                overflow-x: auto; /* Allows horizontal scroll if needed */
+            }
+        }
+    </style>
 {% endblock %}
